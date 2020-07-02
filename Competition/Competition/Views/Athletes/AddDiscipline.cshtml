@@ -1,0 +1,47 @@
+﻿@model Competition.ViewModels.Athletes.DisciplineVM
+@{
+    ViewBag.Title = "AddDiscipline";
+    Layout = "~/Views/Shared/_Site.cshtml";
+}
+
+<h2>AddDiscipline</h2>
+
+<fieldset>
+    <legend>Athlete</legend>
+
+    <div>
+        <b>Name:</b> @Model.Athlete.Name
+    </div>
+</fieldset>
+
+<fieldset>
+    <legend>Disciplines</legend>
+
+    <form action="/Athletes/AddDiscipline" method="post">
+        <input type="hidden" name="athleteId" value="@Model.Athlete.Id" />
+        <select name="disciplineId">
+            @foreach (var discipline in Model.Disciplines)
+            {
+                if(Model.Shared.Find(p=>p.DisciplineId == discipline.Id) != null)
+                { continue;}
+                <option value="@discipline.Id">
+                    @discipline.DisciplineName
+                </option>
+            }
+        </select>
+
+        <input type="submit" value="Add" />
+    </form>
+</fieldset>
+
+<fieldset>
+    <legend>Added Disciplines</legend>
+
+    @foreach (var share in Model.Shared)
+    {
+        <div>@share.Discipline.DisciplineName</div>
+    }
+
+</fieldset>
+
+<a href="/Athletes/Index">Return</a>

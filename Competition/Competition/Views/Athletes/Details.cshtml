@@ -1,0 +1,38 @@
+﻿@model Competition.ViewModels.Athletes.DetailsVM
+@using Competition.Entities;
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Site.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend class="bold">@Model.Athlete.Name</legend>
+    <p>Team: @Model.Team.Country</p>
+</fieldset>
+
+<fieldset>
+    <legend>Disciplines</legend>
+
+    <div class="grid">
+        <div class="row">
+            <div class="col-1 bold"><b>Discipline</b></div>
+            <div class="col-1 bold"><b>Start</b></div>
+            <div class="col-1 bold"><b>End</b></div>
+        </div>
+        @foreach (var item in Model.DisciplinesList)
+        {
+            <div class="row">
+                <div class="col-1">@item.Discipline.DisciplineName</div>
+                <div class="col-1">@item.Discipline.Start</div>
+                <div class="col-1">@item.Discipline.End</div>
+            </div>
+        }
+    </div>
+
+</fieldset>
+<a href="/Athletes/Index">Return</a>
+
+

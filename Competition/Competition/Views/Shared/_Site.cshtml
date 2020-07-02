@@ -1,0 +1,26 @@
+﻿@using Competition.Entities
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="/Content/site.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="topnav">
+        <a href="/Team/Index">Teams</a>
+        <a href="/Athletes/Index">Athletes</a>
+        <a href="/Discipline/Index">Disciplines</a>
+    </div>
+
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>

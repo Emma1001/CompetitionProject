@@ -1,0 +1,36 @@
+﻿@using Competition.Entities;
+@using Competition.Repositories;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Site.cshtml";
+}
+
+<h2>Discipline Index</h2>
+
+<a href="/Discipline/Create">New</a>
+<fieldset>
+    <legend>Disciplines</legend>
+
+    <div class="grid">
+        <div class="row">
+            <div class="col-1 bold"><b>Discipline</b></div>
+            <div class="col-1 bold"><b>Start</b></div>
+            <div class="col-1 bold"><b>End</b></div>
+
+        </div>
+        @foreach (var item in (List<Discipline>)ViewData["disciplines"])
+        {
+        <div class="row">
+            <div class="col-1">@item.DisciplineName</div>
+            <div class="col-1">@item.Start</div>
+            <div class="col-1">@item.End</div>
+            <div class="col-1">
+                <a href="/Discipline/Edit?id=@item.Id">edit</a>
+                <a href="/Discipline/Delete?id=@item.Id">delete</a>
+            </div>
+        </div>
+        }
+    </div>
+
+</fieldset>
+

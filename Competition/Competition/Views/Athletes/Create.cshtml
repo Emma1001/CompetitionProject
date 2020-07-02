@@ -1,0 +1,58 @@
+﻿@model Competition.ViewModels.Athletes.CreateVM
+@using Competition.Entities;
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Site.cshtml";
+}
+
+<fieldset>
+    <legend>Create Athlete</legend>
+
+    <form action="/Athletes/Create" method="post">
+        <div class="grid">
+            <div class="row">
+                <div class="col-1">
+                    <b> @Html.LabelFor(a => a.Name) </b>
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(a => a.Name)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(a => a.Name)
+                </div>
+                @*<div class="col-1">
+                @Html.LabelFor(a => a.Country)
+            </div>
+            <div class="col-2">
+                @Html.TextBoxFor(a => a.Country)
+            </div>
+            <div class="col-2">
+                @Html.ValidationMessageFor(a => a.Country)
+            </div>*@
+                <div class="col-1">
+                    <b>@Html.Label("Country:") </b>
+                </div>
+                <select name="teamId">
+                    @foreach (var item in (List<Team>)ViewData["teams"])
+                    {
+                        <option value="@item.Id">
+                            @item.Country
+                        </option>
+                    }
+                </select>
+
+            </div>
+
+            <div class="row">
+                <div class="col-3">
+                    <input class="right" type="submit" value="Save" />
+                </div>
+            </div>
+            
+        </div>
+    </form>
+</fieldset>
+<a href="/Athletes/Index">Return</a>
+
+

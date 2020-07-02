@@ -1,0 +1,58 @@
+﻿@model Competition.ViewModels.Disciplines.EditVM
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Site.cshtml";
+}
+
+<fieldset>
+    <legend>Edit Discipline</legend>
+
+    <form action="/Discipline/Edit" method="post">
+        @Html.HiddenFor(m => m.Id)
+        <div class="grid">
+            <div class="row">
+                <div class="col-1">
+                    <b>  @Html.LabelFor(m => m.DisciplineName) </b>
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(m => m.DisciplineName)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.DisciplineName)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-1">
+                    <b>  @Html.LabelFor(m => m.Start) </b>
+                </div>
+                <div class="col-2">
+                    @Html.TextAreaFor(m => m.Start)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.Start)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-1">
+                    <b>  @Html.LabelFor(m => m.End) </b>
+                </div>
+                <div class="col-2">
+                    @Html.TextAreaFor(m => m.End)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.End)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <input class="right" type="submit" value="Save" />
+                </div>
+            </div>
+
+        </div>
+        
+    </form>
+</fieldset>
+<a href="/Discipline/Index">Return</a>
+

@@ -1,0 +1,74 @@
+﻿@using Competition.Entities;
+@using Competition.Repositories;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Site.cshtml";
+}
+
+@*<h2>Athletes Index</h2>
+
+    <a href="/Athletes/Create">New</a>
+    <fieldset>
+        <legend>Athletes</legend>
+
+        <div class="grid">
+            <div class="row">
+                <div class="col-1 bold">Name</div>
+                <div class="col-1 bold">Team</div>
+
+            </div>
+            @foreach (var item in (List<Athlete>)ViewData["athletes"])
+            {
+            <div class="row">
+                <div class="col-1">@item.Name</div>
+                <div class="col-1">@item.TeamId</div>
+                <div class="col-1">
+                    <a href="/Athletes/AddDiscipline?athleteId=@item.Id">Add Disciplines</a>
+                </div>
+                <div class="col-1">
+                    <a href="/Athletes/Details?athleteId=@item.Id">Details</a>
+                </div>
+                <div class="col-1">
+                    <a href="/Athletes/Edit?athleteId=@item.Id">Edit</a>
+                </div>
+                <div class="col-1">
+                    <a href="/Athletes/Delete?athleteId=@item.Id">Delete</a>
+                </div>
+            </div>
+            }
+        </div>
+
+    </fieldset>*@
+
+<a href="/Athletes/Create">New</a>
+<fieldset>
+    <table>
+        <tr>
+            
+            <th>
+                <b>Name</b>
+            </th>
+            <th>
+                <b>Team</b>
+            </th>
+            <th></th>
+        </tr>
+        @foreach (var item in (List<Athlete>)ViewData["athletes"])
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TeamId)
+                </td>
+                <td>
+                    <a href="/Athletes/AddDiscipline?athleteId=@item.Id">Add Disciplines</a> |
+                    <a href="/Athletes/Details?athleteId=@item.Id">Details</a> |
+                    <a href="/Athletes/Edit?athleteId=@item.Id">Edit</a> |
+                    <a href="/Athletes/Delete?athleteId=@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+        </table>
+        </fieldset>

@@ -1,0 +1,53 @@
+﻿@model Competition.ViewModels.Disciplines.CreateVM
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Site.cshtml";
+}
+
+<fieldset>
+    <legend>Create Discipline</legend>
+
+    <form action="/Discipline/Create" method="post">
+        <div class="grid">
+            <div class="row">
+                <div class="col-1">
+                    <b> @Html.LabelFor(a => a.DisciplineName) </b>
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(a => a.DisciplineName)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(a => a.DisciplineName)
+                </div>
+
+                <div class="col-1">
+                    <b> @Html.LabelFor(a => a.Start) </b>
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(a => a.Start)
+
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(a => a.Start)
+                </div>
+
+                <div class="col-1">
+                    <b> @Html.LabelFor(a => a.End) </b>
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(a => a.End)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(a => a.End)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <input class="right" type="submit" value="Save" />
+                </div>
+            </div>
+            
+        </div>
+    </form>
+</fieldset>
+<a href="/Discipline/Index">Return</a>

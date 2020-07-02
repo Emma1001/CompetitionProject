@@ -1,0 +1,30 @@
+﻿@using Competition.Entities;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Site.cshtml";
+}
+
+<h2>Team Index</h2>
+
+<a href="/Team/Create">New</a>
+<fieldset>
+    <legend>Teams</legend>
+
+    <div class="grid">
+        <div class="row">
+            <div class="col-1"><b>Id</b></div>
+            <div class="col-1"><b>Country</b></div>
+            <div class="col-1"><b>Athletes</b></div>
+        </div>
+        @foreach (var item in (List<Team>)ViewData["teams"])
+            {
+        <div class="row">
+            <div class="col-1">@item.Id</div>
+            <div class="col-1">@item.Country</div>
+            <div class="col-1">@item.GetCount(item.Id)</div>
+        </div>
+            }
+    </div>
+
+</fieldset>
+
